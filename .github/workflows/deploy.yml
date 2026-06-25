@@ -35,7 +35,6 @@ jobs:
         if: ${{ !contains(github.repository, 'template') }}
         env:
           CHUB_AUTH_TOKEN: ${{ secrets.CHUB_AUTH_TOKEN }}
-          STAGE_ID: ${{ secrets.STAGE_ID }}
         run: |
           mkdir -p public/       
           touch public/chub_meta.yaml  
@@ -116,7 +115,7 @@ jobs:
         env:
           CHUB_AUTH_TOKEN: ${{ secrets.CHUB_AUTH_TOKEN }}
         run: |    
-          curl -H "CH-API-KEY: ${{ secrets.CHUB_AUTH_TOKEN }}" -F "file=@build.zip" https://api.chub.ai/extension/${{ env.STAGE_ID }}/upload
+          curl -H "CH-API-KEY: ${{ secrets.CHUB_AUTH_TOKEN }}" -F "file=@build.zip" https://api.chub.ai/extension/nocthalis/upload
 
       - name: Setup .npmrc
         env:
